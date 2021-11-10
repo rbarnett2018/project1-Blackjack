@@ -1,20 +1,127 @@
 body {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
 }
 h1 {
-    text-align: center;
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: normal;
+  text-align: center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: normal;
 }
 h4 {
-    text-align: center;
-    font-family: "Source Sans Pro", sans-serif;
+  text-align: center;
+  font-family: "Source Sans Pro", sans-serif;
+  display: block;
 }
 h5 {
-    text-align: center;
-    font-family: "Source Sans Pro", sans-serif;
-    border: .1mm solid black ;
-    padding: 10px 5px 10px 5px;
+  text-align: center;
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: center;
+  padding: 10px 5px 10px 5px;
+  display: block;
 }
+#play {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+  display: block;
+}
+.dealer-grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto;
+  height: 200px;
+  width: 100%;
+  justify-content: center;
+}
+.dealer-grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  width: 150px;
+  display: inline;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+.player-grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    height: 200px;
+    width: 100%;
+    justify-content: center;
+    
+  }
+  .player-grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    width: 150px;
+    display: inline;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url();
+  }
+  .score {
+      font-size: 36px;
+      text-align: center;
+      margin-top: auto;
+      margin-bottom: auto;
+      font-weight: bold;
+  }
+  #dealer-score {
+      color: red;
+  }
+ 
+#dCard1 {
+  background-image: url('https://tekeye.uk/playing_cards/images/svg_playing_cards/backs/red.svg');
+}
+#dCard2 {
+  background-image: url('');
+}
+#dCard3 {
+  background-image: url('');
+}
+#dCard4 {
+  background-image: url('');
+}
+#dCard5 {
+  background-image: url('');
+}
+#dCard6 {
+  background-image: url();
+}
+#dCard7 {
+  background-image: url();
+}
+#dCard8 {
+  background-image: url();
+}
+#pCard1 {
+    background-image: url();
+  }
+  #pCard2 {
+    background-image: url();
+  }
+  #pCard3 {
+    background-image: url();
+  }
+  #pCard4 {
+    background-image: url();
+  }
+  #pCard5 {
+    background-image: url();
+  }
+  #pCard6 {
+    background-image: url();
+  }
+  #pCard7 {
+    background-image: url();
+  }
+  #pCard8 {
+    background-image: url();
+  }
