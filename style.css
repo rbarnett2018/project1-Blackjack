@@ -16,7 +16,6 @@ h4 {
 h5 {
   text-align: center;
   font-family: "Source Sans Pro", sans-serif;
-  text-align: center;
   padding: 10px 5px 10px 5px;
   display: block;
 }
@@ -75,10 +74,15 @@ h5 {
   }
   #dealer-score {
       color: red;
+      padding-left: 15px;
+    padding-right: 15px;
   }
- 
+ #player-score {
+   padding-left: 15px;
+    padding-right: 15px;
+ }
 #dCard1 {
-  background-image: url('https://tekeye.uk/playing_cards/images/svg_playing_cards/backs/red.svg');
+  background-image: url('');
 }
 #dCard2 {
   background-image: url('');
@@ -93,35 +97,35 @@ h5 {
   background-image: url('');
 }
 #dCard6 {
-  background-image: url();
+  background-image: url('');
 }
 #dCard7 {
-  background-image: url();
+  background-image: url('');
 }
 #dCard8 {
-  background-image: url();
+  background-image: url('');
 }
 #pCard1 {
-    background-image: url();
+    background-image: url('');
   }
   #pCard2 {
-    background-image: url();
+    background-image: url('');
   }
   #pCard3 {
-    background-image: url();
+    background-image: url('');
   }
   #pCard4 {
-    background-image: url();
+    background-image: url('');
   }
   #pCard5 {
-    background-image: url();
+    background-image: url('');
   }
   #pCard6 {
-    background-image: url();
+    background-image: url('');
   }
   #pCard7 {
-    background-image: url();
+    background-image: url('');
   }
   #pCard8 {
-    background-image: url();
+    background-image: url('');
   }
