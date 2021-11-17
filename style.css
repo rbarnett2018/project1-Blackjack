@@ -20,10 +20,11 @@ h5 {
   display: block;
 }
 #play {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
   display: block;
+  font-size: 30px;
 }
 .dealer-grid-container {
   display: grid;
@@ -31,6 +32,8 @@ h5 {
   height: 200px;
   width: 100%;
   justify-content: center;
+  padding-top: 25px;
+  margin-bottom: 75px;
 }
 .dealer-grid-item {
   background-color: rgba(255, 255, 255, 0.8);
@@ -45,87 +48,163 @@ h5 {
   margin-right: auto;
 }
 .player-grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto;
-    height: 200px;
-    width: 100%;
-    justify-content: center;
-    
-  }
-  .player-grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    width: 150px;
-    display: inline;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: url();
-  }
-  .score {
-      font-size: 36px;
-      text-align: center;
-      margin-top: auto;
-      margin-bottom: auto;
-      font-weight: bold;
-  }
-  #dealer-score {
-      color: red;
-      padding-left: 15px;
-    padding-right: 15px;
-  }
- #player-score {
-   padding-left: 15px;
-    padding-right: 15px;
- }
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto;
+  height: 200px;
+  width: 100%;
+  justify-content: center;
+}
+.player-grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  width: 150px;
+  display: inline;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url();
+}
+.score {
+  font-size: 36px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-weight: bold;
+}
+#dealer-score {
+  color: red;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#player-score {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 #dCard1 {
-  background-image: url('');
+  background-image: url("");
 }
 #dCard2 {
-  background-image: url('');
+  background-image: url("");
 }
 #dCard3 {
-  background-image: url('');
+  background-image: url("");
 }
 #dCard4 {
-  background-image: url('');
+  background-image: url("");
 }
 #dCard5 {
-  background-image: url('');
+  background-image: url("");
 }
 #dCard6 {
-  background-image: url('');
+  background-image: url("");
 }
 #dCard7 {
-  background-image: url('');
+  background-image: url("");
 }
 #dCard8 {
-  background-image: url('');
+  background-image: url("");
 }
 #pCard1 {
-    background-image: url('');
-  }
-  #pCard2 {
-    background-image: url('');
-  }
-  #pCard3 {
-    background-image: url('');
-  }
-  #pCard4 {
-    background-image: url('');
-  }
-  #pCard5 {
-    background-image: url('');
-  }
-  #pCard6 {
-    background-image: url('');
-  }
-  #pCard7 {
-    background-image: url('');
-  }
-  #pCard8 {
-    background-image: url('');
-  }
+  background-image: url("");
+}
+#pCard2 {
+  background-image: url("");
+}
+#pCard3 {
+  background-image: url("");
+}
+#pCard4 {
+  background-image: url("");
+}
+#pCard5 {
+  background-image: url("");
+}
+#pCard6 {
+  background-image: url("");
+}
+#pCard7 {
+  background-image: url("");
+}
+#pCard8 {
+  background-image: url("");
+}
+
+.decision {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+}
+#hit {
+  text-align: center;
+  width: 60px;
+  color: white;
+  font-size: 36px;
+  background-color: green;
+  border: 0.5mm solid black;
+}
+#stay {
+  text-align: center;
+  width: 90px;
+  color: white;
+  font-size: 36px;
+  background-color: red;
+  border: 0.5mm solid black;
+}
+
+.ace {
+  margin-top: 230px;
+  position: static;
+}
+
+#oned8 {
+  display: none;
+}
+#oned6 {
+  display: none;
+}
+#oned4 {
+  display: none;
+}
+#oned1 {
+  display: none;
+}
+#oned2 {
+  display: none;
+}
+#oned3 {
+  display: none;
+}
+#oned5 {
+  display: none;
+}
+#oned7 {
+  display: none;
+}
+#onep8 {
+  display: none;
+}
+#onep6 {
+  display: none;
+}
+#onep4 {
+  display: none;
+}
+#onep1 {
+  display: none;
+}
+#onep2 {
+  display: none;
+}
+#onep3 {
+  display: none;
+}
+#onep5 {
+  display: none;
+}
+#onep7 {
+  display: none;
+}
