@@ -2,22 +2,23 @@ body {
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 5%;
+  background-image: url('https://images.freeimages.com/images/large-previews/4dc/free-casino-table-cloth-texture-1637741.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 h1 {
   text-align: center;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: normal;
 }
-h4 {
-  text-align: center;
-  font-family: "Source Sans Pro", sans-serif;
-  display: block;
-}
-h5 {
+
+h2 {
   text-align: center;
   font-family: "Source Sans Pro", sans-serif;
   padding: 10px 5px 10px 5px;
   display: block;
+  border-color: black;
 }
 #play {
   margin-left: auto;
@@ -25,6 +26,8 @@ h5 {
   margin-bottom: 40px;
   display: block;
   font-size: 30px;
+  background-color: green;
+  color: white;
 }
 .dealer-grid-container {
   display: grid;
@@ -36,7 +39,7 @@ h5 {
   margin-bottom: 75px;
 }
 .dealer-grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: unset;
   text-align: center;
   width: 150px;
   display: inline;
@@ -55,7 +58,7 @@ h5 {
   justify-content: center;
 }
 .player-grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: unset;
   text-align: center;
   width: 150px;
   display: inline;
@@ -78,10 +81,12 @@ h5 {
   color: red;
   padding-left: 15px;
   padding-right: 15px;
+  display: none;
 }
 #player-score {
   padding-left: 15px;
   padding-right: 15px;
+  
 }
 #dCard1 {
   background-image: url("");
