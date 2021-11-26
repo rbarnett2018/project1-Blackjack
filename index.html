@@ -1,107 +1,100 @@
 <!DOCTYPE html>
-
-<html>
-  <head>
-    <meta charset="utf-8" />
-
-    <title>Blank template</title>
-
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <!DOCTYPE html>
-
-<html>
-  <head>
-    <meta charset="utf-8" />
-
-    <title>Blank template</title>
-
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1>Blackjack (21)</h1>
-    <h2>Instructions:</h2>
-    <h2>
-      You are competing against the Dealer in a game of Black-Jack also known as
-      21. You will be dealt two cards which each hold numeric values. The dealer
-      will be dealt two as well, yet one is not visible. Your goal is to either
-      beat the dealer to "21" or to try to get a higher number than the dealer
-      without exceeding "21", which would result in a "bust", then the dealer
-      wins. The dealer will continue to take "hits" until their value is greater
-      than or equal to 17. You have the option to either "hit", which means take
-      an additional card or, you can "stand", which means keep the cards as-is.
-      Highest number value or first to 21 wins, a tie results in the dealer
-      winning.
-    </h2>
-    <button id="play" onclick="play()">Play</button>
-    <div class="dealer-grid-container">
-      <div id="dCard8" class="dealer-grid-item">
-  
-      </div>
-      <div id="dCard6" class="dealer-grid-item">
-  
-      </div>
-      <div id="dCard4" class="dealer-grid-item">
-  
-      </div>
-      <div id="dCard1" class="dealer-grid-item">
-  
-      </div>
-      <div id="dealer-score" class="score">21</div>
-      <div id="dCard2" class="dealer-grid-item">
-  
-      </div>
-      <div id="dCard3" class="dealer-grid-item">
-  
-      </div>
-      <div id="dCard5" class="dealer-grid-item">
-  
-      </div>
-      <div id="dCard7" class="dealer-grid-item">
-  
-      </div>
-    </div>
-    <div class="player-grid-container">
-      <div id="pCard8" class="player-grid-item">
-        <button class="ace" onclick="one()" id="onep8">One</button>
-  
-      </div>
-      <div id="pCard6" class="player-grid-item">
-        <button class="ace" onclick="one()" id="onep6">One</button>
-  
-      </div>
-      <div id="pCard4" class="player-grid-item">
-        <button class="ace" onclick="one()" id="onep4">One</button>
-  
-      </div>
-      <div id="pCard1" class="player-grid-item">
-        <button class="ace" onclick="one()" id="onep1">One</button>
-  
-      </div>
-      <div id="player-score" class="score">21</div>
-      <div id="pCard2" class="player-grid-item">
-        <button class="ace" onclick="one()" id="onep2">One</button>
-  
-      </div>
-      <div id="pCard3" class="player-grid-item">
-        <button class="ace" onclick="one()" id="onep3">One</button>
-  
-      </div>
-      <div id="pCard5" class="player-grid-item">
-        <button class="ace" onclick="one()" id="onep5">One</button>
-  
-      </div>
-      <div id="pCard7" class="player-grid-item">
-        <button class="ace" onclick="one()" id="onep7">One</button>
-  
-      </div>
-    </div>
-    <div class="decision">
-      <button id="hit" onclick="hit()">Hit</button>
-      <button id="stay" onclick="stay()">Stay</button>
-    </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black-Jack</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
   
 
-    <script src="app.js"></script>
-  </body>
+<h1>Blackjack (21)</h1>
+<h2>Instructions:</h2>
+<h2>
+  You are competing against the Dealer in a game of Black-Jack also known as
+  21. You will be dealt two cards which each hold numeric values. The dealer
+  will be dealt two as well, yet one is not visible. Your goal is to either
+  beat the dealer to "21" or to try to get a higher number than the dealer
+  without exceeding "21", which would result in a "bust", then the dealer
+  wins. The dealer will continue to take "hits" until their value is greater
+  than or equal to 17. You have the option to either "hit", which means take
+  an additional card or, you can "stand", which means keep the cards as-is.
+  Highest number value or first to 21 wins, a tie results in the dealer
+  winning.
+</h2>
+<button id="play" onclick="play()">Play</button>
+<div class="dealer-grid-container">
+  <div id="dCard8" class="dealer-grid-item">
+
+  </div>
+  <div id="dCard6" class="dealer-grid-item">
+
+  </div>
+  <div id="dCard4" class="dealer-grid-item">
+
+  </div>
+  <div id="dCard1" class="dealer-grid-item">
+
+  </div>
+  <div id="dealer-score" class="score">21</div>
+  <div id="dCard2" class="dealer-grid-item">
+
+  </div>
+  <div id="dCard3" class="dealer-grid-item">
+
+  </div>
+  <div id="dCard5" class="dealer-grid-item">
+
+  </div>
+  <div id="dCard7" class="dealer-grid-item">
+
+  </div>
+</div>
+<div class="player-grid-container">
+  <div id="pCard8" class="player-grid-item">
+    <button class="ace" onclick="one()" id="onep8">One</button>
+
+  </div>
+  <div id="pCard6" class="player-grid-item">
+    <button class="ace" onclick="one()" id="onep6">One</button>
+
+  </div>
+  <div id="pCard4" class="player-grid-item">
+    <button class="ace" onclick="one()" id="onep4">One</button>
+
+  </div>
+  <div id="pCard1" class="player-grid-item">
+    <button class="ace" onclick="one()" id="onep1">One</button>
+
+  </div>
+  <div id="player-score" class="score">21</div>
+  <div id="pCard2" class="player-grid-item">
+    <button class="ace" onclick="one()" id="onep2">One</button>
+
+  </div>
+  <div id="pCard3" class="player-grid-item">
+    <button class="ace" onclick="one()" id="onep3">One</button>
+
+  </div>
+  <div id="pCard5" class="player-grid-item">
+    <button class="ace" onclick="one()" id="onep5">One</button>
+
+  </div>
+  <div id="pCard7" class="player-grid-item">
+    <button class="ace" onclick="one()" id="onep7">One</button>
+
+  </div>
+</div>
+<div class="decision">
+  <button id="hit" onclick="hit()">Hit</button>
+  <button id="stay" onclick="stay()">Stay</button>
+</div>
+
+<div class="playAgain">
+  <button id="playAgain" onclick="refreshPage()">Play Again?</button>
+</div>
+<script src="app.js"></script>
+</body>
 </html>

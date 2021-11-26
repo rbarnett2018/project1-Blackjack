@@ -2,7 +2,7 @@ body {
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 5%;
-  background-image: url('https://images.freeimages.com/images/large-previews/4dc/free-casino-table-cloth-texture-1637741.jpg');
+  background-image: url("https://images.freeimages.com/images/large-previews/4dc/free-casino-table-cloth-texture-1637741.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -86,7 +86,6 @@ h2 {
 #player-score {
   padding-left: 15px;
   padding-right: 15px;
-  
 }
 #dCard1 {
   background-image: url("");
@@ -150,6 +149,7 @@ h2 {
   font-size: 36px;
   background-color: green;
   border: 0.5mm solid black;
+  display: "";
 }
 #stay {
   text-align: center;
@@ -158,6 +158,22 @@ h2 {
   font-size: 36px;
   background-color: red;
   border: 0.5mm solid black;
+  display: "";
+}
+.playAgain {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+}
+#playAgain {
+  width: 150px;
+  color: white;
+  font-size: 36px;
+  background-color: green;
+  border: 0.5mm solid black;
+  padding-bottom: 5px;
+  display: none;
 }
 
 .ace {
