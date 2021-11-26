@@ -374,1082 +374,1111 @@ let playerCardValues = [0];
 let playerCardValues1 = [0];
 let valueD = [0];
 let valueP = [0];
-
+function indexOfAce(value) {
+  return value > 10;
+}
+function one() {
+  let acesIndex = playerCardValues.findIndex(indexOfAce);
+  playerCardValues.splice(acesIndex, 1, 1);
+  let valueP = playerCardValues.reduce(sum);
+  document.getElementById("player-score").innerHTML = valueP;
+  console.log(playerCardValues);
+  console.log(acesIndex);
+}
+function aceDealtWontCauseBust() {
+  if (playerCardValues <= 10) {
+    playerCardValues.push(11);
+  } else {
+    playerCardValues.push(1);
+  }
+}
 function refreshPage() {
   window.location.href = window.location.href;
 }
 function ifP() {
-  if (cardsInHand.playerCard3 === aceOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = aceOH1;
-    playerCardValues.push(11);
-    document.getElementById("onep3").style.display = "initial";
-  } else if (cardsInHand.playerCard3 == twoOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = twoOH1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard3 == threeOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = threeOH1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard3 == fourOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = fourOH1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard3 == fiveOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = fiveOH1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard3 == sixOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = sixOH1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard3 == sevenOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = sevenOH1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard3 == eightOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = eightOH1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard3 == nineOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = nineOH1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard3 == tenOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = tenOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == jackOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = jackOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == queenOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = queenOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == kingOH) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = kingOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == aceOH111) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = aceOH1;
-    playerCardValues.push(11);
-    document.getElementById("onep3").style.display = "initial";
-  } else if (cardsInHand.playerCard3 == aceOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = aceOD1;
-    playerCardValues.push(11);
-    document.getElementById("onep3").style.display = "initial";
-  } else if (cardsInHand.playerCard3 == twoOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = twoOD1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard3 == threeOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = threeOD1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard3 == fourOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = fourOD1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard3 == fiveOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = fiveOD1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard3 == sixOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = sixOD1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard3 == sevenOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = sevenOD1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard3 == eightOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = eightOD1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard3 == nineOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = nineOD1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard3 == tenOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = tenOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == jackOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = jackOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == queenOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = queenOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == kingOD) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = kingOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == aceOD111) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = aceOD1;
-    playerCardValues.push(11);
-    document.getElementById("onep3").style.display = "initial";
-  } else if (cardsInHand.playerCard3 == aceOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = aceOC1;
-    playerCardValues.push(11);
-    document.getElementById("onep3").style.display = "initial";
-  } else if (cardsInHand.playerCard3 == twoOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = twoOC1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard3 == threeOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = threeOC1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard3 == fourOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = fourOC1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard3 == fiveOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = fiveOC1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard3 == sixOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = sixOC1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard3 == sevenOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = sevenOC1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard3 == eightOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = eightOC1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard3 == nineOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = nineOC1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard3 == tenOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = tenOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == jackOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = jackOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == queenOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = queenOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == kingOC) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = kingOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == aceOC111) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = aceOC1;
-    playerCardValues.push(11);
-    document.getElementById("onep3").style.display = "initial";
-  } else if (cardsInHand.playerCard3 == aceOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = aceOS1;
-    playerCardValues.push(11);
-    document.getElementById("onep3").style.display = "initial";
-  } else if (cardsInHand.playerCard3 == twoOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = twoOS1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard3 == threeOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = threeOS1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard3 == fourOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = fourOS1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard3 == fiveOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = fiveOS1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard3 == sixOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = sixOS1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard3 == sevenOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = sevenOS1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard3 == eightOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = eightOS1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard3 == nineOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = nineOS1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard3 == tenOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = tenOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == jackOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = jackOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == queenOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = queenOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == kingOS) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = kingOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard3 == aceOS111) {
-    pC3 = document.getElementById("pCard3").style.backgroundImage = aceOS1;
-    playerCardValues.push(11);
-    document.getElementById("onep3").style.display = "initial";
+  if (clicksOnHit == 1) {
+    if (cardsInHand.playerCard3 === aceOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = aceOH1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep3").style.display = "initial";
+    } else if (cardsInHand.playerCard3 == twoOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = twoOH1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard3 == threeOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = threeOH1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard3 == fourOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = fourOH1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard3 == fiveOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = fiveOH1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard3 == sixOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = sixOH1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard3 == sevenOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = sevenOH1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard3 == eightOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = eightOH1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard3 == nineOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = nineOH1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard3 == tenOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = tenOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == jackOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = jackOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == queenOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = queenOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == kingOH) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = kingOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == aceOH111) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = aceOH1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep3").style.display = "initial";
+    } else if (cardsInHand.playerCard3 == aceOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = aceOD1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep3").style.display = "initial";
+    } else if (cardsInHand.playerCard3 == twoOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = twoOD1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard3 == threeOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = threeOD1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard3 == fourOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = fourOD1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard3 == fiveOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = fiveOD1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard3 == sixOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = sixOD1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard3 == sevenOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = sevenOD1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard3 == eightOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = eightOD1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard3 == nineOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = nineOD1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard3 == tenOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = tenOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == jackOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = jackOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == queenOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = queenOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == kingOD) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = kingOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == aceOD111) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = aceOD1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep3").style.display = "initial";
+    } else if (cardsInHand.playerCard3 == aceOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = aceOC1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep3").style.display = "initial";
+    } else if (cardsInHand.playerCard3 == twoOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = twoOC1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard3 == threeOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = threeOC1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard3 == fourOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = fourOC1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard3 == fiveOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = fiveOC1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard3 == sixOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = sixOC1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard3 == sevenOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = sevenOC1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard3 == eightOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = eightOC1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard3 == nineOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = nineOC1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard3 == tenOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = tenOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == jackOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = jackOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == queenOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = queenOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == kingOC) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = kingOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == aceOC111) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = aceOC1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep3").style.display = "initial";
+    } else if (cardsInHand.playerCard3 == aceOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = aceOS1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep3").style.display = "initial";
+    } else if (cardsInHand.playerCard3 == twoOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = twoOS1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard3 == threeOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = threeOS1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard3 == fourOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = fourOS1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard3 == fiveOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = fiveOS1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard3 == sixOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = sixOS1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard3 == sevenOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = sevenOS1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard3 == eightOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = eightOS1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard3 == nineOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = nineOS1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard3 == tenOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = tenOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == jackOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = jackOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == queenOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = queenOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == kingOS) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = kingOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard3 == aceOS111) {
+      pC3 = document.getElementById("pCard3").style.backgroundImage = aceOS1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep3").style.display = "initial";
+    }
   }
 
   //PLAYERS FOURTH CARD
-  if (cardsInHand.playerCard4 === aceOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = aceOH1;
-    playerCardValues.push(11);
-    document.getElementById("onep4").style.display = "initial";
-  } else if (cardsInHand.playerCard4 == twoOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = twoOH1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard4 == threeOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = threeOH1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard4 == fourOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = fourOH1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard4 == fiveOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = fiveOH1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard4 == sixOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = sixOH1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard4 == sevenOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = sevenOH1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard4 == eightOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = eightOH1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard4 == nineOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = nineOH1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard4 == tenOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = tenOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == jackOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = jackOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == queenOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = queenOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == kingOH) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = kingOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == aceOH111) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = aceOH1;
-    playerCardValues.push(11);
-    document.getElementById("onep4").style.display = "initial";
-  } else if (cardsInHand.playerCard4 == aceOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = aceOD1;
-    playerCardValues.push(11);
-    document.getElementById("onep4").style.display = "initial";
-  } else if (cardsInHand.playerCard4 == twoOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = twoOD1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard4 == threeOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = threeOD1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard4 == fourOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = fourOD1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard4 == fiveOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = fiveOD1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard4 == sixOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = sixOD1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard4 == sevenOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = sevenOD1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard4 == eightOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = eightOD1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard4 == nineOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = nineOD1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard4 == tenOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = tenOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == jackOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = jackOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == queenOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = queenOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == kingOD) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = kingOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == aceOD111) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = aceOD1;
-    playerCardValues.push(11);
-    document.getElementById("onep4").style.display = "initial";
-  } else if (cardsInHand.playerCard4 == aceOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = aceOC1;
-    playerCardValues.push(11);
-    document.getElementById("onep4").style.display = "initial";
-  } else if (cardsInHand.playerCard4 == twoOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = twoOC1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard4 == threeOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = threeOC1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard4 == fourOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = fourOC1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard4 == fiveOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = fiveOC1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard4 == sixOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = sixOC1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard4 == sevenOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = sevenOC1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard4 == eightOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = eightOC1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard4 == nineOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = nineOC1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard4 == tenOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = tenOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == jackOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = jackOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == queenOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = queenOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == kingOC) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = kingOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == aceOC111) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = aceOC1;
-    playerCardValues.push(11);
-    document.getElementById("onep4").style.display = "initial";
-  } else if (cardsInHand.playerCard4 == aceOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = aceOS1;
-    playerCardValues.push(11);
-    document.getElementById("onep4").style.display = "initial";
-  } else if (cardsInHand.playerCard4 == twoOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = twoOS1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard4 == threeOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = threeOS1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard4 == fourOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = fourOS1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard4 == fiveOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = fiveOS1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard4 == sixOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = sixOS1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard4 == sevenOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = sevenOS1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard4 == eightOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = eightOS1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard4 == nineOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = nineOS1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard4 == tenOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = tenOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == jackOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = jackOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == queenOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = queenOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == kingOS) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = kingOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard4 == aceOS111) {
-    pC4 = document.getElementById("pCard4").style.backgroundImage = aceOS1;
-    playerCardValues.push(11);
-    document.getElementById("onep4").style.display = "initial";
+  if (clicksOnHit == 2) {
+    if (cardsInHand.playerCard4 === aceOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = aceOH1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep4").style.display = "initial";
+    } else if (cardsInHand.playerCard4 == twoOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = twoOH1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard4 == threeOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = threeOH1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard4 == fourOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = fourOH1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard4 == fiveOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = fiveOH1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard4 == sixOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = sixOH1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard4 == sevenOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = sevenOH1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard4 == eightOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = eightOH1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard4 == nineOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = nineOH1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard4 == tenOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = tenOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == jackOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = jackOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == queenOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = queenOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == kingOH) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = kingOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == aceOH111) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = aceOH1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep4").style.display = "initial";
+    } else if (cardsInHand.playerCard4 == aceOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = aceOD1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep4").style.display = "initial";
+    } else if (cardsInHand.playerCard4 == twoOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = twoOD1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard4 == threeOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = threeOD1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard4 == fourOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = fourOD1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard4 == fiveOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = fiveOD1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard4 == sixOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = sixOD1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard4 == sevenOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = sevenOD1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard4 == eightOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = eightOD1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard4 == nineOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = nineOD1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard4 == tenOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = tenOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == jackOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = jackOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == queenOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = queenOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == kingOD) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = kingOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == aceOD111) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = aceOD1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep4").style.display = "initial";
+    } else if (cardsInHand.playerCard4 == aceOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = aceOC1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep4").style.display = "initial";
+    } else if (cardsInHand.playerCard4 == twoOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = twoOC1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard4 == threeOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = threeOC1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard4 == fourOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = fourOC1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard4 == fiveOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = fiveOC1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard4 == sixOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = sixOC1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard4 == sevenOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = sevenOC1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard4 == eightOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = eightOC1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard4 == nineOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = nineOC1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard4 == tenOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = tenOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == jackOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = jackOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == queenOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = queenOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == kingOC) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = kingOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == aceOC111) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = aceOC1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep4").style.display = "initial";
+    } else if (cardsInHand.playerCard4 == aceOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = aceOS1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep4").style.display = "initial";
+    } else if (cardsInHand.playerCard4 == twoOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = twoOS1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard4 == threeOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = threeOS1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard4 == fourOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = fourOS1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard4 == fiveOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = fiveOS1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard4 == sixOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = sixOS1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard4 == sevenOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = sevenOS1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard4 == eightOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = eightOS1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard4 == nineOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = nineOS1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard4 == tenOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = tenOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == jackOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = jackOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == queenOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = queenOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == kingOS) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = kingOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard4 == aceOS111) {
+      pC4 = document.getElementById("pCard4").style.backgroundImage = aceOS1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep4").style.display = "initial";
+    }
   }
 
   //PLAYERS FIFTH CARD
-  if (cardsInHand.playerCard5 === aceOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = aceOH1;
-    playerCardValues.push(11);
-    document.getElementById("onep5").style.display = "initial";
-  } else if (cardsInHand.playerCard5 == twoOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = twoOH1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard5 == threeOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = threeOH1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard5 == fourOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = fourOH1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard5 == fiveOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = fiveOH1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard5 == sixOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = sixOH1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard5 == sevenOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = sevenOH1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard5 == eightOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = eightOH1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard5 == nineOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = nineOH1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard5 == tenOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = tenOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == jackOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = jackOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == queenOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = queenOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == kingOH) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = kingOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == aceOH111) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = aceOH1;
-    playerCardValues.push(11);
-    document.getElementById("onep5").style.display = "initial";
-  } else if (cardsInHand.playerCard5 == aceOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = aceOD1;
-    playerCardValues.push(11);
-    document.getElementById("onep5").style.display = "initial";
-  } else if (cardsInHand.playerCard5 == twoOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = twoOD1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard5 == threeOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = threeOD1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard5 == fourOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = fourOD1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard5 == fiveOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = fiveOD1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard5 == sixOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = sixOD1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard5 == sevenOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = sevenOD1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard5 == eightOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = eightOD1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard5 == nineOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = nineOD1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard5 == tenOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = tenOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == jackOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = jackOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == queenOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = queenOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == kingOD) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = kingOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == aceOD111) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = aceOD1;
-    playerCardValues.push(11);
-    document.getElementById("onep5").style.display = "initial";
-  } else if (cardsInHand.playerCard5 == aceOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = aceOC1;
-    playerCardValues.push(11);
-    document.getElementById("onep5").style.display = "initial";
-  } else if (cardsInHand.playerCard5 == twoOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = twoOC1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard5 == threeOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = threeOC1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard5 == fourOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = fourOC1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard5 == fiveOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = fiveOC1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard5 == sixOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = sixOC1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard5 == sevenOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = sevenOC1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard5 == eightOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = eightOC1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard5 == nineOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = nineOC1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard5 == tenOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = tenOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == jackOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = jackOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == queenOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = queenOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == kingOC) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = kingOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == aceOC111) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = aceOC1;
-    playerCardValues.push(11);
-    document.getElementById("onep5").style.display = "initial";
-  } else if (cardsInHand.playerCard5 == aceOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = aceOS1;
-    playerCardValues.push(11);
-    document.getElementById("onep5").style.display = "initial";
-  } else if (cardsInHand.playerCard5 == twoOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = twoOS1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard5 == threeOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = threeOS1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard5 == fourOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = fourOS1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard5 == fiveOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = fiveOS1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard5 == sixOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = sixOS1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard5 == sevenOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = sevenOS1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard5 == eightOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = eightOS1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard5 == nineOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = nineOS1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard5 == tenOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = tenOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == jackOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = jackOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == queenOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = queenOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == kingOS) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = kingOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard5 == aceOS111) {
-    pc5 = document.getElementById("pCard5").style.backgroundImage = aceOS1;
-    playerCardValues.push(11);
-    document.getElementById("onep5").style.display = "initial";
+  if (clicksOnHit == 3) {
+    if (cardsInHand.playerCard5 === aceOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = aceOH1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep5").style.display = "initial";
+    } else if (cardsInHand.playerCard5 == twoOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = twoOH1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard5 == threeOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = threeOH1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard5 == fourOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = fourOH1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard5 == fiveOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = fiveOH1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard5 == sixOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = sixOH1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard5 == sevenOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = sevenOH1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard5 == eightOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = eightOH1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard5 == nineOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = nineOH1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard5 == tenOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = tenOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == jackOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = jackOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == queenOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = queenOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == kingOH) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = kingOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == aceOH111) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = aceOH1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep5").style.display = "initial";
+    } else if (cardsInHand.playerCard5 == aceOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = aceOD1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep5").style.display = "initial";
+    } else if (cardsInHand.playerCard5 == twoOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = twoOD1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard5 == threeOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = threeOD1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard5 == fourOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = fourOD1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard5 == fiveOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = fiveOD1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard5 == sixOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = sixOD1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard5 == sevenOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = sevenOD1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard5 == eightOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = eightOD1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard5 == nineOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = nineOD1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard5 == tenOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = tenOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == jackOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = jackOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == queenOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = queenOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == kingOD) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = kingOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == aceOD111) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = aceOD1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep5").style.display = "initial";
+    } else if (cardsInHand.playerCard5 == aceOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = aceOC1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep5").style.display = "initial";
+    } else if (cardsInHand.playerCard5 == twoOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = twoOC1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard5 == threeOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = threeOC1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard5 == fourOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = fourOC1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard5 == fiveOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = fiveOC1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard5 == sixOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = sixOC1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard5 == sevenOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = sevenOC1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard5 == eightOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = eightOC1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard5 == nineOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = nineOC1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard5 == tenOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = tenOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == jackOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = jackOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == queenOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = queenOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == kingOC) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = kingOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == aceOC111) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = aceOC1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep5").style.display = "initial";
+    } else if (cardsInHand.playerCard5 == aceOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = aceOS1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep5").style.display = "initial";
+    } else if (cardsInHand.playerCard5 == twoOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = twoOS1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard5 == threeOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = threeOS1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard5 == fourOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = fourOS1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard5 == fiveOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = fiveOS1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard5 == sixOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = sixOS1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard5 == sevenOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = sevenOS1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard5 == eightOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = eightOS1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard5 == nineOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = nineOS1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard5 == tenOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = tenOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == jackOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = jackOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == queenOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = queenOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == kingOS) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = kingOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard5 == aceOS111) {
+      pc5 = document.getElementById("pCard5").style.backgroundImage = aceOS1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep5").style.display = "initial";
+    }
   }
 
   //PLAYERS SIXTH CARD
-  if (cardsInHand.playerCard6 === aceOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = aceOH1;
-    playerCardValues.push(11);
-    document.getElementById("onep6").style.display = "initial";
-  } else if (cardsInHand.playerCard6 == twoOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = twoOH1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard6 == threeOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = threeOH1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard6 == fourOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = fourOH1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard6 == fiveOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = fiveOH1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard6 == sixOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = sixOH1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard6 == sevenOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = sevenOH1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard6 == eightOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = eightOH1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard6 == nineOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = nineOH1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard6 == tenOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = tenOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == jackOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = jackOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == queenOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = queenOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == kingOH) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = kingOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == aceOH111) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = aceOH1;
-    playerCardValues.push(11);
-    document.getElementById("onep6").style.display = "initial";
-  } else if (cardsInHand.playerCard6 == aceOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = aceOD1;
-    playerCardValues.push(11);
-    document.getElementById("onep6").style.display = "initial";
-  } else if (cardsInHand.playerCard6 == twoOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = twoOD1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard6 == threeOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = threeOD1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard6 == fourOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = fourOD1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard6 == fiveOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = fiveOD1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard6 == sixOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = sixOD1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard6 == sevenOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = sevenOD1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard6 == eightOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = eightOD1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard6 == nineOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = nineOD1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard6 == tenOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = tenOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == jackOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = jackOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == queenOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = queenOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == kingOD) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = kingOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == aceOD111) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = aceOD1;
-    playerCardValues.push(11);
-    document.getElementById("onep6").style.display = "initial";
-  } else if (cardsInHand.playerCard6 == aceOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = aceOC1;
-    playerCardValues.push(11);
-    document.getElementById("onep6").style.display = "initial";
-  } else if (cardsInHand.playerCard6 == twoOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = twoOC1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard6 == threeOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = threeOC1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard6 == fourOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = fourOC1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard6 == fiveOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = fiveOC1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard6 == sixOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = sixOC1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard6 == sevenOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = sevenOC1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard6 == eightOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = eightOC1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard6 == nineOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = nineOC1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard6 == tenOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = tenOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == jackOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = jackOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == queenOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = queenOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == kingOC) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = kingOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == aceOC111) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = aceOC1;
-    playerCardValues.push(11);
-    document.getElementById("onep6").style.display = "initial";
-  } else if (cardsInHand.playerCard6 == aceOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = aceOS1;
-    playerCardValues.push(11);
-    document.getElementById("onep6").style.display = "initial";
-  } else if (cardsInHand.playerCard6 == twoOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = twoOS1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard6 == threeOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = threeOS1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard6 == fourOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = fourOS1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard6 == fiveOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = fiveOS1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard6 == sixOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = sixOS1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard6 == sevenOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = sevenOS1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard6 == eightOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = eightOS1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard6 == nineOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = nineOS1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard6 == tenOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = tenOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == jackOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = jackOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == queenOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = queenOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == kingOS) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = kingOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard6 == aceOS111) {
-    pc6 = document.getElementById("pCard6").style.backgroundImage = aceOS1;
-    playerCardValues.push(11);
-    document.getElementById("onep6").style.display = "initial";
+  if (clicksOnHit == 4) {
+    if (cardsInHand.playerCard6 === aceOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = aceOH1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep6").style.display = "initial";
+    } else if (cardsInHand.playerCard6 == twoOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = twoOH1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard6 == threeOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = threeOH1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard6 == fourOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = fourOH1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard6 == fiveOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = fiveOH1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard6 == sixOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = sixOH1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard6 == sevenOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = sevenOH1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard6 == eightOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = eightOH1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard6 == nineOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = nineOH1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard6 == tenOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = tenOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == jackOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = jackOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == queenOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = queenOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == kingOH) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = kingOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == aceOH111) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = aceOH1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep6").style.display = "initial";
+    } else if (cardsInHand.playerCard6 == aceOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = aceOD1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep6").style.display = "initial";
+    } else if (cardsInHand.playerCard6 == twoOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = twoOD1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard6 == threeOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = threeOD1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard6 == fourOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = fourOD1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard6 == fiveOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = fiveOD1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard6 == sixOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = sixOD1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard6 == sevenOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = sevenOD1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard6 == eightOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = eightOD1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard6 == nineOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = nineOD1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard6 == tenOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = tenOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == jackOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = jackOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == queenOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = queenOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == kingOD) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = kingOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == aceOD111) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = aceOD1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep6").style.display = "initial";
+    } else if (cardsInHand.playerCard6 == aceOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = aceOC1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep6").style.display = "initial";
+    } else if (cardsInHand.playerCard6 == twoOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = twoOC1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard6 == threeOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = threeOC1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard6 == fourOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = fourOC1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard6 == fiveOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = fiveOC1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard6 == sixOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = sixOC1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard6 == sevenOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = sevenOC1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard6 == eightOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = eightOC1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard6 == nineOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = nineOC1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard6 == tenOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = tenOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == jackOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = jackOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == queenOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = queenOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == kingOC) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = kingOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == aceOC111) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = aceOC1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep6").style.display = "initial";
+    } else if (cardsInHand.playerCard6 == aceOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = aceOS1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep6").style.display = "initial";
+    } else if (cardsInHand.playerCard6 == twoOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = twoOS1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard6 == threeOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = threeOS1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard6 == fourOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = fourOS1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard6 == fiveOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = fiveOS1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard6 == sixOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = sixOS1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard6 == sevenOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = sevenOS1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard6 == eightOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = eightOS1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard6 == nineOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = nineOS1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard6 == tenOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = tenOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == jackOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = jackOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == queenOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = queenOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == kingOS) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = kingOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard6 == aceOS111) {
+      pc6 = document.getElementById("pCard6").style.backgroundImage = aceOS1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep6").style.display = "initial";
+    }
   }
 
   //PLAYERS SEVENTH CARD
-  if (cardsInHand.playerCard7 === aceOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = aceOH1;
-    playerCardValues.push(11);
-    document.getElementById("onep7").style.display = "initial";
-  } else if (cardsInHand.playerCard7 == twoOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = twoOH1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard7 == threeOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = threeOH1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard7 == fourOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = fourOH1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard7 == fiveOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = fiveOH1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard7 == sixOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = sixOH1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard7 == sevenOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = sevenOH1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard7 == eightOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = eightOH1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard7 == nineOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = nineOH1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard7 == tenOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = tenOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == jackOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = jackOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == queenOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = queenOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == kingOH) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = kingOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == aceOH111) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = aceOH1;
-    playerCardValues.push(11);
-    document.getElementById("onep7").style.display = "initial";
-  } else if (cardsInHand.playerCard7 == aceOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = aceOD1;
-    playerCardValues.push(11);
-    document.getElementById("onep7").style.display = "initial";
-  } else if (cardsInHand.playerCard7 == twoOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = twoOD1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard7 == threeOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = threeOD1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard7 == fourOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = fourOD1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard7 == fiveOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = fiveOD1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard7 == sixOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = sixOD1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard7 == sevenOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = sevenOD1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard7 == eightOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = eightOD1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard7 == nineOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = nineOD1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard7 == tenOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = tenOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == jackOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = jackOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == queenOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = queenOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == kingOD) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = kingOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == aceOD111) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = aceOD1;
-    playerCardValues.push(11);
-    document.getElementById("onep7").style.display = "initial";
-  } else if (cardsInHand.playerCard7 == aceOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = aceOC1;
-    playerCardValues.push(11);
-    document.getElementById("onep7").style.display = "initial";
-  } else if (cardsInHand.playerCard7 == twoOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = twoOC1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard7 == threeOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = threeOC1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard7 == fourOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = fourOC1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard7 == fiveOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = fiveOC1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard7 == sixOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = sixOC1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard7 == sevenOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = sevenOC1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard7 == eightOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = eightOC1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard7 == nineOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = nineOC1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard7 == tenOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = tenOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == jackOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = jackOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == queenOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = queenOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == kingOC) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = kingOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == aceOC111) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = aceOC1;
-    playerCardValues.push(11);
-    document.getElementById("onep7").style.display = "initial";
-  } else if (cardsInHand.playerCard7 == aceOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = aceOS1;
-    playerCardValues.push(11);
-    document.getElementById("onep7").style.display = "initial";
-  } else if (cardsInHand.playerCard7 == twoOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = twoOS1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard7 == threeOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = threeOS1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard7 == fourOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = fourOS1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard7 == fiveOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = fiveOS1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard7 == sixOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = sixOS1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard7 == sevenOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = sevenOS1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard7 == eightOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = eightOS1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard7 == nineOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = nineOS1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard7 == tenOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = tenOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == jackOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = jackOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == queenOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = queenOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == kingOS) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = kingOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard7 == aceOS111) {
-    pC7 = document.getElementById("pCard7").style.backgroundImage = aceOS1;
-    playerCardValues.push(11);
-    document.getElementById("onep7").style.display = "initial";
+  if (clicksOnHit == 5) {
+    if (cardsInHand.playerCard7 === aceOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = aceOH1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep7").style.display = "initial";
+    } else if (cardsInHand.playerCard7 == twoOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = twoOH1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard7 == threeOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = threeOH1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard7 == fourOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = fourOH1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard7 == fiveOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = fiveOH1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard7 == sixOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = sixOH1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard7 == sevenOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = sevenOH1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard7 == eightOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = eightOH1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard7 == nineOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = nineOH1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard7 == tenOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = tenOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == jackOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = jackOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == queenOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = queenOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == kingOH) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = kingOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == aceOH111) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = aceOH1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep7").style.display = "initial";
+    } else if (cardsInHand.playerCard7 == aceOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = aceOD1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep7").style.display = "initial";
+    } else if (cardsInHand.playerCard7 == twoOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = twoOD1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard7 == threeOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = threeOD1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard7 == fourOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = fourOD1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard7 == fiveOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = fiveOD1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard7 == sixOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = sixOD1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard7 == sevenOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = sevenOD1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard7 == eightOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = eightOD1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard7 == nineOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = nineOD1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard7 == tenOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = tenOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == jackOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = jackOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == queenOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = queenOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == kingOD) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = kingOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == aceOD111) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = aceOD1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep7").style.display = "initial";
+    } else if (cardsInHand.playerCard7 == aceOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = aceOC1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep7").style.display = "initial";
+    } else if (cardsInHand.playerCard7 == twoOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = twoOC1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard7 == threeOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = threeOC1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard7 == fourOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = fourOC1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard7 == fiveOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = fiveOC1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard7 == sixOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = sixOC1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard7 == sevenOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = sevenOC1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard7 == eightOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = eightOC1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard7 == nineOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = nineOC1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard7 == tenOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = tenOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == jackOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = jackOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == queenOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = queenOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == kingOC) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = kingOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == aceOC111) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = aceOC1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep7").style.display = "initial";
+    } else if (cardsInHand.playerCard7 == aceOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = aceOS1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep7").style.display = "initial";
+    } else if (cardsInHand.playerCard7 == twoOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = twoOS1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard7 == threeOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = threeOS1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard7 == fourOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = fourOS1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard7 == fiveOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = fiveOS1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard7 == sixOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = sixOS1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard7 == sevenOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = sevenOS1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard7 == eightOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = eightOS1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard7 == nineOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = nineOS1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard7 == tenOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = tenOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == jackOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = jackOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == queenOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = queenOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == kingOS) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = kingOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard7 == aceOS111) {
+      pC7 = document.getElementById("pCard7").style.backgroundImage = aceOS1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep7").style.display = "initial";
+    }
   }
 
   //PLAYERS EIGHTH CARD
-  if (cardsInHand.playerCard8 === aceOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = aceOH1;
-    playerCardValues.push(11);
-    document.getElementById("onep8").style.display = "initial";
-  } else if (cardsInHand.playerCard8 == twoOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = twoOH1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard8 == threeOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = threeOH1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard8 == fourOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = fourOH1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard8 == fiveOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = fiveOH1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard8 == sixOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = sixOH1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard8 == sevenOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = sevenOH1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard8 == eightOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = eightOH1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard8 == nineOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = nineOH1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard8 == tenOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = tenOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == jackOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = jackOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == queenOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = queenOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == kingOH) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = kingOH1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == aceOH111) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = aceOH1;
-    playerCardValues.push(11);
-    document.getElementById("onep8").style.display = "initial";
-  } else if (cardsInHand.playerCard8 == aceOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = aceOD1;
-    playerCardValues.push(11);
-    document.getElementById("onep8").style.display = "initial";
-  } else if (cardsInHand.playerCard8 == twoOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = twoOD1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard8 == threeOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = threeOD1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard8 == fourOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = fourOD1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard8 == fiveOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = fiveOD1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard8 == sixOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = sixOD1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard8 == sevenOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = sevenOD1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard8 == eightOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = eightOD1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard8 == nineOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = nineOD1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard8 == tenOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = tenOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == jackOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = jackOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == queenOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = queenOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == kingOD) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = kingOD1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == aceOD111) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = aceOD1;
-    playerCardValues.push(11);
-    document.getElementById("onep8").style.display = "initial";
-  } else if (cardsInHand.playerCard8 == aceOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = aceOC1;
-    playerCardValues.push(11);
-    document.getElementById("onep8").style.display = "initial";
-  } else if (cardsInHand.playerCard8 == twoOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = twoOC1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard8 == threeOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = threeOC1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard8 == fourOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = fourOC1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard8 == fiveOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = fiveOC1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard8 == sixOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = sixOC1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard8 == sevenOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = sevenOC1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard8 == eightOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = eightOC1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard8 == nineOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = nineOC1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard8 == tenOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = tenOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == jackOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = jackOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == queenOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = queenOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == kingOC) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = kingOC1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == aceOC111) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = aceOC1;
-    playerCardValues.push(11);
-    document.getElementById("onep8").style.display = "initial";
-  } else if (cardsInHand.playerCard8 == aceOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = aceOS1;
-    playerCardValues.push(11);
-    document.getElementById("onep8").style.display = "initial";
-  } else if (cardsInHand.playerCard8 == twoOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = twoOS1;
-    playerCardValues.push(2);
-  } else if (cardsInHand.playerCard8 == threeOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = threeOS1;
-    playerCardValues.push(3);
-  } else if (cardsInHand.playerCard8 == fourOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = fourOS1;
-    playerCardValues.push(4);
-  } else if (cardsInHand.playerCard8 == fiveOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = fiveOS1;
-    playerCardValues.push(5);
-  } else if (cardsInHand.playerCard8 == sixOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = sixOS1;
-    playerCardValues.push(6);
-  } else if (cardsInHand.playerCard8 == sevenOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = sevenOS1;
-    playerCardValues.push(7);
-  } else if (cardsInHand.playerCard8 == eightOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = eightOS1;
-    playerCardValues.push(8);
-  } else if (cardsInHand.playerCard8 == nineOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = nineOS1;
-    playerCardValues.push(9);
-  } else if (cardsInHand.playerCard8 == tenOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = tenOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == jackOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = jackOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == queenOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = queenOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == kingOS) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = kingOS1;
-    playerCardValues.push(10);
-  } else if (cardsInHand.playerCard8 == aceOS111) {
-    pC8 = document.getElementById("pCard8").style.backgroundImage = aceOS1;
-    playerCardValues.push(11);
-    document.getElementById("onep8").style.display = "initial";
+  if (clicksOnHit == 6) {
+    if (cardsInHand.playerCard8 === aceOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = aceOH1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep8").style.display = "initial";
+    } else if (cardsInHand.playerCard8 == twoOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = twoOH1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard8 == threeOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = threeOH1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard8 == fourOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = fourOH1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard8 == fiveOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = fiveOH1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard8 == sixOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = sixOH1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard8 == sevenOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = sevenOH1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard8 == eightOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = eightOH1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard8 == nineOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = nineOH1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard8 == tenOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = tenOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == jackOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = jackOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == queenOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = queenOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == kingOH) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = kingOH1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == aceOH111) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = aceOH1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep8").style.display = "initial";
+    } else if (cardsInHand.playerCard8 == aceOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = aceOD1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep8").style.display = "initial";
+    } else if (cardsInHand.playerCard8 == twoOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = twoOD1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard8 == threeOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = threeOD1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard8 == fourOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = fourOD1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard8 == fiveOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = fiveOD1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard8 == sixOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = sixOD1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard8 == sevenOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = sevenOD1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard8 == eightOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = eightOD1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard8 == nineOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = nineOD1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard8 == tenOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = tenOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == jackOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = jackOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == queenOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = queenOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == kingOD) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = kingOD1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == aceOD111) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = aceOD1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep8").style.display = "initial";
+    } else if (cardsInHand.playerCard8 == aceOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = aceOC1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep8").style.display = "initial";
+    } else if (cardsInHand.playerCard8 == twoOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = twoOC1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard8 == threeOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = threeOC1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard8 == fourOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = fourOC1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard8 == fiveOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = fiveOC1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard8 == sixOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = sixOC1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard8 == sevenOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = sevenOC1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard8 == eightOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = eightOC1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard8 == nineOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = nineOC1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard8 == tenOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = tenOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == jackOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = jackOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == queenOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = queenOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == kingOC) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = kingOC1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == aceOC111) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = aceOC1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep8").style.display = "initial";
+    } else if (cardsInHand.playerCard8 == aceOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = aceOS1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep8").style.display = "initial";
+    } else if (cardsInHand.playerCard8 == twoOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = twoOS1;
+      playerCardValues.push(2);
+    } else if (cardsInHand.playerCard8 == threeOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = threeOS1;
+      playerCardValues.push(3);
+    } else if (cardsInHand.playerCard8 == fourOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = fourOS1;
+      playerCardValues.push(4);
+    } else if (cardsInHand.playerCard8 == fiveOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = fiveOS1;
+      playerCardValues.push(5);
+    } else if (cardsInHand.playerCard8 == sixOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = sixOS1;
+      playerCardValues.push(6);
+    } else if (cardsInHand.playerCard8 == sevenOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = sevenOS1;
+      playerCardValues.push(7);
+    } else if (cardsInHand.playerCard8 == eightOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = eightOS1;
+      playerCardValues.push(8);
+    } else if (cardsInHand.playerCard8 == nineOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = nineOS1;
+      playerCardValues.push(9);
+    } else if (cardsInHand.playerCard8 == tenOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = tenOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == jackOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = jackOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == queenOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = queenOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == kingOS) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = kingOS1;
+      playerCardValues.push(10);
+    } else if (cardsInHand.playerCard8 == aceOS111) {
+      pC8 = document.getElementById("pCard8").style.backgroundImage = aceOS1;
+      aceDealtWontCauseBust();
+      document.getElementById("onep8").style.display = "initial";
+    }
   }
 }
 function ifS() {
@@ -3391,10 +3420,16 @@ function play() {
   document.getElementById("player-score").innerHTML = valueP;
   if (valueP == 21) {
     alert("21! You Win!");
-    
   }
-  document.getElementById("player-score").style.display='inherit';
+  document.getElementById("player-score").style.display = "inherit";
 }
+function playerWins21() {
+  alert("You have 21! You Win!");
+}
+function playerBust() {
+  alert("BUST! Better Luck Next Time!");
+}
+
 function hit() {
   clicksOnHit += 1;
   hitIf();
@@ -3402,9 +3437,18 @@ function hit() {
   let valueP = playerCardValues.reduce(sum);
   document.getElementById("player-score").innerHTML = valueP;
   if (valueP == 21) {
-    alert("21! You Win!"); 
-    
-  } else if (valueP > 21) alert("BUST! Better Luck Next Time!"); 
+    setTimeout(playerWins21, 1000);
+    end();
+  } else if (valueP > 21) {
+    setTimeout(playerBust, 1000);
+    end();
+  }
+  console.log(playerCardValues);
+}
+function end() {
+  document.getElementById("stay").style.display = "none";
+  document.getElementById("hit").style.display = "none";
+  document.getElementById("playAgain").style.display = "initial";
 }
 function valueDSum() {
   document.getElementById("dealer-score").style.display = "inherit";
@@ -3446,62 +3490,74 @@ function dealerLogic6() {
   ifSD8();
   valueDSum();
 }
-function dealerWins1(){
+function dealerWins1() {
   alert("Dealer has " + dealerCardValues.reduce(sum) + " ...try again!");
+  end();
 }
-function playerWins1(){
+function playerWins1() {
   alert("You win! Congrats!");
+  end();
 }
-function compare(){
-  if (dealerCardValues.reduce(sum) >= playerCardValues.reduce(sum)){
-    setTimeout(dealerWins1(), 88000);
-  }else if (playerCardValues.reduce(sum) > dealerCardValues.reduce(sum)){
-    setTimeout(playerWins1(), 88000);
+function dealerWins1If() {
+  if (dealerCardValues.reduce(sum) >= playerCardValues.reduce(sum)) {
+    setTimeout(dealerWins1, 1000);
+    end();
   }
 }
-function playerWins2(){
-  alert("The dealer has " + dealerCardValues.reduce(sum) +  ". The dealer loses!")
-}
-function dealerWins2(){
-  alert('Dealer has 21, you lose.')
-}
-function stayCall () {
-  if (dealerCardValues.reduce(sum) < 17){
-     dealerLogic1()
-     
-  }else if (dealerCardValues.reduce(sum) <= 17){
-    dealerLogic2()
-  }if (dealerCardValues.reduce(sum) <= 17){
-    dealerLogic3()
-  }if (dealerCardValues.reduce(sum) <= 17){
-    dealerLogic4()
-  }if (dealerCardValues.reduce(sum) <= 17){
-    dealerLogic5()
-  }if (dealerCardValues.reduce(sum) <= 17){
-    dealerLogic6()
-  }if (dealerCardValues.reduce(sum) > 21){
-    setTimeout(playerWins2(),88000);
+function playerWins1If() {
+  if (playerCardValues.reduce(sum) > dealerCardValues.reduce(sum)) {
+    setTimeout(playerWins1, 1000);
+    end();
   }
-  if (dealerCardValues.reduce(sum) >= 17 && dealerCardValues.reduce(sum) <= 20){
-    compare(dealerCardValues.reduce(sum));
+}
+
+function playerWins2() {
+  alert(
+    "The dealer has " + dealerCardValues.reduce(sum) + ". The dealer loses!"
+  );
+  end();
+}
+function dealerWins2() {
+  alert("Dealer has 21, you lose.");
+  end();
+}
+function stayCall() {
+  if (dealerCardValues.reduce(sum) < 17) {
+    dealerLogic1();
+  } else if (dealerCardValues.reduce(sum) <= 17) {
+    dealerLogic2();
   }
-  if (dealerCardValues.reduce(sum) == 21){
-setTimeout(dealerWins2(), 88000)
+  if (dealerCardValues.reduce(sum) <= 17) {
+    dealerLogic3();
+  }
+  if (dealerCardValues.reduce(sum) <= 17) {
+    dealerLogic4();
+  }
+  if (dealerCardValues.reduce(sum) <= 17) {
+    dealerLogic5();
+  }
+  if (dealerCardValues.reduce(sum) <= 17) {
+    dealerLogic6();
+  }
+  if (dealerCardValues.reduce(sum) > 21) {
+    setTimeout(playerWins2, 1080);
+  }
+  if (
+    dealerCardValues.reduce(sum) >= 17 &&
+    dealerCardValues.reduce(sum) <= 20
+  ) {
+    dealerWins1If();
+    playerWins1If();
+  }
+  if (dealerCardValues.reduce(sum) == 21) {
+    setTimeout(dealerWins2, 1080);
   }
 }
 function stay() {
   dealerLogic();
-  
-  stayCall();
-  
 
+  stayCall();
 }
 
 let domForValueP = document.getElementById("player-score").innerHTML;
 let domForValueD = document.getElementById("dealer-score").innerHTML;
-
-function one() {
-  let valueP = playerCardValues.reduce(sum) - 10;
-  document.getElementById("player-score").innerHTML = valueP;
-  console.log(valueP);
-}
